@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>United States Hate Crime Data</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Rokkitt" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/izaguirre.css">
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+  <script src="https://code.highcharts.com/themes/avocado.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>United States Hate Crime Incidents</h1>
+    <h2>by Rosmery Izaguirre</h2>
+  </header>
+
+  <article>
+    <div class="charts">
+      <div id="bar"></div>
+      <p class="caption"><b>Source:</b> Federal Bureau of Investigation, Criminal Justice Information Services <a href="https://ucr.fbi.gov/hate-crime/2016/tables/table-1">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2016</a>; <a href="https://ucr.fbi.gov/hate-crime/2015/tables-and-data-declarations/1tabledatadecpdf">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2015</a>; <a href="https://ucr.fbi.gov/hate-crime/2014/tables/table-1">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2014</a>; <a href="https://ucr.fbi.gov/hate-crime/2013/tables/1tabledatadecpdf/table_1_incidents_offenses_victims_and_known_offenders_by_bias_motivation_2013.xls">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2013</a></p>
+    </div>
+
+    <div class="text">
+      <p>Hate crime statistics in the United States have become increasingly relevant throughout the recent years. The United States has experienced a lot of polarizing incidents recently with our political climate becoming tense. A special area of interest to inspect can be the rise of anti-religion motivated hate crimes.</p>
+      <p>In particular from the year 2013 to the year 2016, anti-Muslim motivated hate crimes have gone up dramatically. This is important to note as the travel ban, often referred to as the Muslim ban, was put into action in the beginning of the year 2017.</p>
+    </div>
+
+    <div class="charts">
+      <div id="line"></div>
+      <p class="caption"><b>Source:</b> Federal Bureau of Investigation, Criminal Justice Information Services <a href="https://ucr.fbi.gov/hate-crime/2016/tables/table-1">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2016</a>; <a href="https://ucr.fbi.gov/hate-crime/2015/tables-and-data-declarations/1tabledatadecpdf">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2015</a>; <a href="https://ucr.fbi.gov/hate-crime/2014/tables/table-1">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2014</a>; <a href="https://ucr.fbi.gov/hate-crime/2013/tables/1tabledatadecpdf/table_1_incidents_offenses_victims_and_known_offenders_by_bias_motivation_2013.xls">Table 1 Incidents, Offenses, Victims, and Known Offenders by Bias Motivation, 2013</a></p>
+    </div>
+
+  </article>
+
+  <script>
+    Highcharts.chart('bar', {
+      chart: {
+          type: 'bar'
+      },
+      title: {
+          text: 'United States Single-Bias Hate Crime Incidents by Motivation'
+      },
+      subtitle: {
+          text: 'Source: <a href="https://www.fbi.gov/services/cjis/ucr/publications#Hate-Crime%20Statistics">fbi.gov/services/cjis/ucr/hate-crime</a>'
+      },
+      xAxis: {
+          categories: ['Race/Ethnicity/Ancestry', 'Religion', 'Sexual Orientation', 'Gender Identity', 'Disability', 'Gender'],
+          title: {
+              text: null
+          }
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'Incidents',
+              align: 'high'
+          },
+          labels: {
+              overflow: 'justify'
+          }
+      },
+      tooltip: {
+          valueSuffix: null
+      },
+      plotOptions: {
+          bar: {
+              dataLabels: {
+                  enabled: false
+              }
+          }
+      },
+      legend: {
+          layout: 'horizontal',
+          align: 'right',
+          verticalAlign: 'bottom',
+          //x: -40,
+          //y: 0,
+          //floating: true,
+          //borderWidth: 1,
+          backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+          //shadow: true
+      },
+      credits: {
+          enabled: false
+      },
+      series: [{
+          name: 'Year 2013',
+          data: [3526, 1031, 1233, 31, 83, 18]
+      }, {
+          name: 'Year 2014',
+          data: [3216, 1014, 1017, 98, 84, 33]
+      }, {
+          name: 'Year 2015',
+          data: [3310, 1244, 1053, 114, 74, 23]
+      }, {
+          name: 'Year 2016',
+          data: [3489, 1273, 1076, 124, 70, 31]
+      }]
+    });
+  </script>
+
+  <script>
+      Highcharts.chart('line', {
+
+          title: {
+              text: 'United States Hate Crimes by Religion'
+          },
+
+          subtitle: {
+              text: 'Source: <a href="https://www.fbi.gov/services/cjis/ucr/publications#Hate-Crime%20Statistics">fbi.gov/services/cjis/ucr/hate-crime</a>'
+          },
+
+          yAxis: {
+              title: {
+                  text: 'Number of Incidents'
+              }
+          },
+          legend: {
+              layout: 'horizontal',
+              align: 'right',
+              verticalAlign: 'bottom',
+              //x: -40,
+              //y: 0,
+              //floating: true,
+              //borderWidth: 1,
+              backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+              //shadow: true
+          },
+
+          plotOptions: {
+              series: {
+                  label: {
+                      connectorAllowed: false
+                  },
+                  pointStart: 2013
+              }
+          },
+
+          series: [{
+              name: 'Anti-Jewish',
+              data: [625, 609, 664, 684]
+          }, {
+              name: 'Anti-Catholic',
+              data: [70, 64, 53, 62]
+          }, {
+              name: 'Anti-Protestant',
+              data: [35, 25, 37, 15]
+          }, {
+              name: 'Anti-Islam(Muslim)',
+              data: [135, 154, 257, 307]
+          }],
+
+          responsive: {
+              rules: [{
+                  condition: {
+                      maxWidth: 500
+                  },
+                  chartOptions: {
+                      legend: {
+                          layout: 'horizontal',
+                          align: 'center',
+                          verticalAlign: 'bottom'
+                      }
+                  }
+              }]
+          }
+
+      });
+  </script>
+
+</body>
+
+</html>
